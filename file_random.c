@@ -5,7 +5,7 @@
 double* create_array(int size){
     double* array = malloc(sizeof(double) * size);
     for (int i = 0; i < size; i++){
-        array[i] = (double)rand() / 10000;
+        array[i] = 10000 * (double)rand() / RAND_MAX;
     }
     return array;
 }
@@ -21,7 +21,7 @@ double* file2(FILE* p_f, int* size){
     fscanf(p_f, "%d\n", size);
     double* p_array = malloc(sizeof(double*) * *size); 
     for (int i = 0; i < *size; i++){
-        fscanf(p_f, "%lf\n", p_array[i]);
+        fscanf(p_f, "%lf\n", &p_array[i]);
     }
     return p_array;
 }
